@@ -1,0 +1,11 @@
+FROM centos
+
+RUN yum install httpd -y
+
+COPY var/jenkins/workspace/index.php  /var/www/html 
+
+CMD httpd -DFOREGROUND 
+
+CMD curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
+
+CMD chmod +x ./kubectl
